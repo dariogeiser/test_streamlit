@@ -47,5 +47,15 @@ st.title('Random League of Legends Champion')
 
 if st.button('Get Random Champion'):
     chosen_champion = random.choice(champions)
-    st.markdown(f"<h3 style='color: linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3); font-size: 40px;'>{chosen_champion}</h3>", unsafe_allow_html=True)
-
+    html_str = f"""
+    <style>
+    .rainbow-text {{
+        font-size: 30px;
+        background: linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }}
+    </style>
+    <div class="rainbow-text">{chosen_champion}</div>
+    """
+    st.markdown(html_str, unsafe_allow_html=True)
